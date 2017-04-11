@@ -35,6 +35,8 @@ app.get('/mapSearch', function(req, res) {
 });
 
 app.post('/mapSearch',function(req,res){
+
+	console.log(req.body);
 	if(req.body.caseNum){
 		museumObj.find({  "location": req.body.caseNum}, function(err, obj, count){
 			if(err){
@@ -147,7 +149,6 @@ app.post('/AddObj',upload.single('pic'),function(req,res) {
 			res.redirect('/');
 		}
 	});
-
 });
 
 app.listen(app.get('port'), function() {

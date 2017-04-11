@@ -17,14 +17,13 @@
 	 		<BR>
 	 		<input type="submit" value="Search!" style="font-size:15px; color:#F4F1DE; background-color: #81B29A;"><BR><BR>
 			</form>
-	<div>
-            <form id="formmap" action="mapSearch" method="POST">
-		<img class="img-responsive" src="/images/luce.jpg" usemap="#floorplan_Map">
-            <input type='hidden' id="caseNum" value="caseNum"/>
-            </form>
-	<div>
+
+            <form id="formmap" action="/mapSearch" method="POST">
+		          <img class="img-responsive" src="/images/luce.jpg" usemap="#floorplan_Map">
+              <input type='hidden' name="caseNum" id="caseNum" value>
+            
       <map name="floorplan_Map">
-            <area shape="poly" coords="264,99,275,110,258,127,247,116" onClick="formsubmit(1);" >
+            <area shape="poly" alt ="#1" coords="264,99,275,110,258,127,247,116" onClick="formsubmit(1)" >
             <area shape="rect" coords="246,87,262,99" onClick="formsubmit(2);" >
             <area shape="poly" coords="223,99,250,126,230,146,203,119" onClick="formsubmit(3);">
             <area shape="rect" coords="186,161,224,173" onClick="formsubmit(4);">
@@ -72,42 +71,21 @@
             <area shape="rect" coords="494,164,519,173" onClick="formsubmit(45);">
             <area shape="rect" coords="477,164,493,173" onClick="formsubmit(46);">
       </map>
+      </form>
     <script>
       $(document).ready(function(e) {
         $('img[usemap]').rwdImageMaps();
       });
 
-      // var map = document.getElementsByTagName("area");
-      // for(var i =0 ;i<map.length;i++){
-      //       map[i].addEventListener('click', function(event){
-      //                         console.log(map[i].getAttribute('alt'));
-      //       });
-
-      //       // map[i].addEventListener('click', function(event){
-      //       //      var test =  map[i].getAttribute('alt');
-      //       //      console.log(test);
-      //       // });
-      // }
-
-    //   $('area').on('click', function() {
-    //       var caseS = $(this).attr('alt');
-    //       window.alert("Data will be displayed for  #"+ caseS +".");
-    //       document.getElementById('caseNum').value = caseS;
-    //       //document.formsubmit();
-    // });
-
       function formsubmit(val){
             document.getElementById('caseNum').setAttribute("value", val);
             console.log(document.getElementById('caseNum').value);
-            window.alert("Data will be displayed for  #"+ val +".");
+            //window.alert("Data will be displayed for  #"+ val +".");
             document.getElementById('formmap').submit();
       }
 
 
     </script>
-
-
-
 
 </div>
 
