@@ -3,18 +3,21 @@ var URLSlugs = require('mongoose-url-slugs');
 
 
 var MuseumObject = new mongoose.Schema({
-  accessionNum: String,
-  maker: {String, default: ''},
-  manufacturer: {String, default: ''},
-  title: String,  
-  date: {String, default: ''},
-  medium: {String, default: ''}, 
-  dimensions: {String, default: ''},
-  marks: {String, default: ''},
-  description: {String, default: ''},
-  pic: {String, default: ''}
+  accessionNum: {type: String, default: ''},
+  maker: {type: String, default: ''},
+  manufacturer: {type: String, default: ''},
+  title: {type: String, default: ''},
+  date: {type: String, default: ''},
+  medium: {type: String, default: ''}, 
+  dimensions: {type: String, default: ''},
+  marks: {type: String, default: ''},
+  description: {type: String, default: ''},
+  pic: {type: String, default: ''},
+  furtherLinks: [String],
+  furtherArticles: {type: Array},
+  furtherKeywords:[String],
+  location: String
 });
-
 
 MuseumObject.plugin(URLSlugs('title'));
 mongoose.model('MuseumObject', MuseumObject);
@@ -36,7 +39,7 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 } 
 else {
  // if we're not in PRODUCTION mode, then use
- dbconf = 'mongodb://localhost/BKMuseum1';
+ dbconf = 'mongodb://localhost/BKMuseum';
 }
 
 mongoose.connect(dbconf);
