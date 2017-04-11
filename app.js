@@ -26,7 +26,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-
 app.get('/', function(req, res) {
 	res.render('index');
 });
@@ -53,7 +52,6 @@ app.get('/AdvancedSearch', function(req, res) {
 });
 
 app.post('/AdvancedSearch', function(req,res){
-	console.log(req.body);
 	if(req.body){
 		var keys=[];
 		if(req.body.keywords){
@@ -134,7 +132,6 @@ app.post('/AddObj',upload.single('pic'),function(req,res) {
 		}
 	}
 	if(req.body.links){
-		console.log(req.body.links);
 		var splitLinks = req.body.links.split(',');
 		for(var j=0;j<splitLinks.length;j++){
 			splitLinks[j] = splitLinks[j].replace(/(\r\n|\n|\r)/gm,"");
