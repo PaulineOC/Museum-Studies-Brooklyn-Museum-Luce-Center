@@ -31,7 +31,6 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
  var path = require('path');
  var fn = path.join(__dirname, 'config.json');
  var data = fs.readFileSync(fn);
-
  // our configuration file will be in json, so parse it and set the
  // conenction string appropriately!
  var conf = JSON.parse(data);
@@ -39,7 +38,7 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 } 
 else {
  // if we're not in PRODUCTION mode, then use
- dbconf = 'mongodb://localhost/BKMuseum';
+ dbconf = 'mongodb://pauline:mongo123@ds159180.mlab.com:59180/heroku_4sqrmtr5';
 }
 
 mongoose.connect(dbconf);
