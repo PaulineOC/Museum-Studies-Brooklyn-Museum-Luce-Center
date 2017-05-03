@@ -8,8 +8,8 @@
 				<div class="col-lg-12">
 					<div class="buttonbar" style="width:50%; margin-left:auto;margin-right:auto;">
 						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="/">Home</a></button>
-						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;">About</button>
-						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="mapSearch">Map Search</a></button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="https://www.brooklynmuseum.org/opencollection/research/luce/general">About</button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="/mapSearch">Map Search</a></button>
 						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="Themes">Keywords</a></button>
 						<button type="button" class="btn btn-default navbar-btn"style="font-size:20px;"><a href="AskUs">Ask App</a></button>
 					</div>
@@ -19,11 +19,13 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="searchbarnormal" style="width:50%; margin-left:auto;margin-right:auto;">
-						<form method = "GET" action="/search" id = "formdiv">
+
+						<form method = "post" action="/searchbar" id = "formdiv">
 				 		<h3>Show me:</h3><input type="text" name = "search" value ="" style="font-size:16px">
 				 		<BR>
 				 		<input type="submit" value="Search" alt="Search"><BR>
 						</form>
+
 					</div>
 				</div>
 			</div>
@@ -86,9 +88,12 @@
 		var searchNum = hidden.length;
 		var table= document.getElementById('table');
 		var arrayObj = [];
+
+
 		for(var k=0;k<searchNum;k++){
 			arrayObj.push(hidden[k]);
 		}
+
 		var rowNum = searchNum / 4;
 		var lastRemainder=0;
 		var lastRow =false;
@@ -150,11 +155,13 @@
 				table.append(row);
 			}
 			else{
+
 				for(var j=0;j<4;j++){
 					var bigdiv = document.createElement("td");
 					bigdiv.classList.add("td");
 
 					var currItem = arrayObj.shift();
+
 					var img=currItem.lastChild.previousSibling;
 					//title
 					var slug =currItem.firstChild.nextSibling;
