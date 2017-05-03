@@ -1,24 +1,73 @@
 
 <div class="container-fluid">
-	<h1>Welcome to the Brooklyn Museum's Luce Research Center<h1>
-	<h4>
-		PLEASE ENJOY
-	</h4>
+	<div class="row">
+		<div class="col-lg-12">
+
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 style="text-align:center">Welcome to the Brooklyn Museum's Luce Research Center<h1>
+					<img src="/images/bike.jpg" class="img-responsive" style="margin-left: auto; margin-right: auto"></img>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="buttonbar" style="width:50%; margin-left:auto;margin-right:auto;">
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;">About</button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="mapSearch">Map Search</a></button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="Themes">Keywords</a></button>
+						<button type="button" class="btn btn-default navbar-btn"style="font-size:20px;"><a href=<a href="AskUs">Ask App</a></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="searchbarnormal" style="width:50%; margin-left:auto;margin-right:auto;">
+						<form method = "GET" action="/search" id = "formdiv">
+				 		<h3>Show me:</h3><input type="text" name = "search" value ="" style="font-size:16px">
+				 		<BR>
+				 		<input type="submit" value="Search" alt="Search"><BR>
+						</form>
+					</div>
+				</div>
+			</div>
+
+				<div class="row">
+				<div class="col-lg-12">
+					<div class="advanced" style="width:50%; margin-left:auto;margin-right:auto;">
+				 			<a href="AdvancedSearch" style="font-size:16px;">Advanced Search</a><BR><BR>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-lg-12">
+					<p style="font-size: 16px">
+						Welcome to the Luce Center for American Art at the Brooklyn Museum. This program allows you to access information about the approximately 2,000 objects on view in the Luce Center's Visible Storage • Study Center and the adjacent American Identities galleries.<BR><BR>You can search for information in three different ways: by Map, by Theme, and by Advanced Search. The Map search, which is most helpful if you are in the Museum, allows you to select an area of the Luce Center and learn about the objects displayed there. The Theme search offers a more organized search for visitors who are interested in a category suggested by Museum staff, such as Art by Women. Finally, Advanced Search gives you several user-directed options, allowing you to search by artist, accession number, or keyword (for a quicker search, simply type in the accession number or keyword in the text box above and click "Go"). Click on any of the labeled buttons above to begin.
+					</p>
+				</div>
+			</div>
+
+
+
+					
+				
+</div>
+
+	
 	<p>
-		<a href="AdvancedSearch">Advanced Search</a><BR>		
-		<a href="AskUs">Ask Us</a><BR>
-		<a href="Themes">Themes</a><BR>
+		Themes</a><BR>
 		<a href="AddObj">Add Obj</a><BR>
-		<a href="mapSearch">Map Search</a>
+		Map Search</a>
 	</p>
+
+
 	{{!-- <div class="col-md-2"> --}}
 	{{!-- <h5>Search:<input required class="form-control" type="text" id="search" name="search">	
 		<input id="searchBtn" type="submit" class="btn"> --}}
-			<form method = "GET" action="/search" id = "formdiv">
-	 		Show me: <input type="text" name = "search" value ="">
-	 		<BR>
-	 		<input type="submit" value="Search!" style="font-size:15px; color:#F4F1DE; background-color: #81B29A;"><BR><BR>
-			</form>
+			
 
 </div>
 {{!-- 
