@@ -1,72 +1,98 @@
 <div class="container-fluid">
-	<h1>Brooklyn Museum's Luce Research Center</h1>
 	<div class="row">
 		{{!-- Image --}}
 
-		<div class="col-lg-4">
-			<img class="img-responsive" src="data:image/jpeg;base64,{{{object.pic}}}">
+		<div class="col-lg-4" style="padding-top:20px">
+			
+			<div class="row">
+				<div class="col-lg-12">
+					<img class="img-responsive" src="data:image/jpeg;base64,{{{object.pic}}}">
+				</div>
+			</div>
+			<br>
+			<table class="table-responsive"> 
+				<tbody>
+				
+					<tr>
+						<td>
+							<h4 style="display: inline;">Accession #:</h4> {{{object.accessionNum}}}
+						</td>
+					</tr>
+
+					{{#if object.manufacturer }}
+						<tr>
+							<td>
+								<h4 style="display: inline;">Manufacturer</h4>: {{{object.manufacturer}}} 
+							</td>
+						<tr>
+					{{/if}}
+
+					{{#if object.dimensions }}
+						<tr>
+							<td>
+								<h4 style="display: inline;">Dimensions</h4>: {{{object.dimensions}}} 
+							</td>
+						<tr>
+					{{/if}}
+
+					{{#if object.marks }}
+						<tr>
+							<td>
+								<h4 style="display: inline;">Marks</h4>: {{{object.marks}}} 
+							</td>
+						<tr>
+					{{/if}}
+
+					{{#if object.medium }}
+						<tr>
+							<td>
+								<h4 style="display: inline;">Medium</h4>: {{{object.medium}}} 
+							</td>
+						<tr>
+					{{/if}}
+				</tbody>
+			</table>
 		</div>
 
 		{{!-- Information --}}
 		<div class="col-lg-4">
+
 			<h2>{{{object.title}}}</h2>
-			<div>
-				Accession #: {{{object.accessionNum}}}
-			</div>
 
-			{{#if object.maker }}
-				<div>
-					Maker #: {{{object.maker}}} 
-				</div>
-			{{/if}}
+			<table class="table-responsive"> 
+				<tbody>
+					<tr>
+						<td>
+							<h4 style="display: inline;">Date :</h4> {{{object.date}}}
+						</td>
+					</tr>
 
-			{{#if object.manufacturer }}
-				<div>
-					Manufacturer #: {{{object.manufacturer}}} 
-				</div>
-			{{/if}}
+					{{#if object.maker }}
+						<tr>
+							<td>
+								<h4 style="display: inline;">Maker: </h4> {{{object.maker}}}
+							</td>
+						<tr>
+					{{/if}}
 
-			{{#if object.date}}
-				<div>
-					Date: {{{object.date}}} 
-				</div>
-			{{/if}}
-
-			{{#if object.medium }}
-				<div>
-					Medium: {{{object.medium}}} 
-				</div>
-			{{/if}}
-
-			{{#if object.dimensions }}
-				<div>
-					Dimensions: {{{object.dimensions}}} 
-				</div>
-			{{/if}}
+					{{#if object.description }}
+						<tr>
+							<td>
+								<h4 style="display: inline;">Description :</h4> {{{object.description}}} 
+							</td>
+						<tr>
+					{{/if}}
 
 
-			{{#if object.marks }}
-				<div>
-					Marks: {{{object.marks}}} 
-				</div>
-			{{/if}}
-
-			{{#if object.description }}
-				<div>
-					Description: {{{object.description}}} 
-				</div>
-			{{/if}}
-
+				</tbody>
+			</table>
 		</div>
+
+
 		{{!-- Further Information --}}
 		<div class="col-lg-4">
 			<h3>Further Information</h3>
 
-			{{!-- {{#each object.furtherArtLinks}}
-				<a href='{{this}}'>hi{{this}}</a><BR>
-			{{/each }} --}}
-			
-			
 			{{#if object.furtherArticles}}
 			<h4>Articles</h4>
 				{{#each object.furtherArticles}}
@@ -76,7 +102,7 @@
 			{{/if}}
 
 				{{#if object.furtherLinks}}
-				<h4>Related Videos</h4><BR>
+				<h4>Related Videos</h4>
 				{{#each object.furtherLinks}}
 					<div class="embed-responsive embed-responsive-16by9">
 				  		<iframe class="embed-responsive-item" src="{{this}}" frameborder="0" allowfullscreen></iframe>

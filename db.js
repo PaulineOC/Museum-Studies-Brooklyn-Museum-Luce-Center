@@ -16,7 +16,8 @@ var MuseumObject = new mongoose.Schema({
   furtherLinks: [String],
   furtherArticles: {type: Array},
   furtherKeywords:[String],
-  location: String
+  location: String,
+  subject: [String]
 });
 
 MuseumObject.plugin(URLSlugs('title'));

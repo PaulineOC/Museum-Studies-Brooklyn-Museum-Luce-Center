@@ -4,7 +4,9 @@ var db = require('./db.js');
 var path = require('path');
 
 var bodyParser = require('body-parser');
+
 var handlebars = require('hbs');
+
 
 var mongoose = require('mongoose');
 var museumObj = mongoose.model('MuseumObject');
@@ -20,11 +22,10 @@ var upload = multer({ storage: multer.memoryStorage({}) });
 //Port setting
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '/views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.set('view engine', 'hbs');
 
 app.get('/', function(req, res) {
 	res.render('index');
@@ -35,7 +36,6 @@ app.get('/mapSearch', function(req, res) {
 });
 
 app.post('/mapSearch',function(req,res){
-
 	console.log(req.body);
 	if(req.body.caseNum){
 		museumObj.find({  "location": req.body.caseNum}, function(err, obj, count){
@@ -43,7 +43,7 @@ app.post('/mapSearch',function(req,res){
 				console.log(err);
 			}
 			else{
-			res.render('Search', {'searchTerm': obj});
+			res.render('Search', {'searchTerm': obj, "location":req.body.caseNum });
 			}
 		});
 	}
@@ -61,11 +61,10 @@ app.post('/AdvancedSearch', function(req,res){
 		}
 		museumObj.find({ $or: [{ "accessionNum": req.body.accession},{"maker":req.body.maker},{"manufacturer":req.body.manufacturer},{"title":req.body.title},{"date":req.body.date},{"medium":req.body.medium},{"location":req.body.location},{'furtherKeywords': { $in: keys}}]},function(err,obj){
 			if(obj){
-				res.render('Search', {'searchTerm': obj});
+				res.render('Search', {'searchTerm': obj, "advancedterm": req.body});
 			}
 			else{
 				console.log(err);
-				console.log("not here");
 			}
 		});
 	}
@@ -81,9 +80,24 @@ app.get('/Themes', function(req, res) {
 
 
 app.get('/search', function(req,res){
-	console.log(req.query.search);
-	museumObj.find({ $or: [{ "accessionNum": req.query.search},{ "title": req.query.search}, { "manufacturer": req.query.search}, {"medium": req.query.search},{"maker": req.query.search}]}, function(err, obj, count) {
-		res.render('Search', {'searchTerm': obj});
+	//console.log(req.query.search);
+	museumObj.find({ $or: [{ "accessionNum":req.query.search},{"maker":req.query.search},{"manufacturer":req.query.search},{"title":req.query.search},{"date":req.query.search},{"medium":req.query.search},{"location":req.query.search},{'furtherKeywords': req.query.search}]}, function(err, obj, count) {
+		res.render('Search', {'searchTerm': obj,"generalterm":req.query.search});
+	});
+});
+
+
+app.post('/keyTerm',function(req,res){
+	var results=[];
+	var word =req.body.keyWord.toLowerCase().trim();
+
+	museumObj.find({}).then(function(rs){
+		rs.forEach(function(ele){
+			if(subjectSearch(ele, word)){
+				results.push(ele);
+			}
+		});
+		res.render('Search', {'generalterm':word, 'searchTerm': results});
 	});
 });
 
@@ -141,6 +155,19 @@ app.post('/AddObj',upload.single('pic'),function(req,res) {
 			newObj.furtherLinks.push(splitLinks[j]);
 		}
 	}
+
+	if(req.body.subject){
+		var splitSubject = req.body.subject.split(',,');
+		for(var i=0;i<splitSubject.length;i++){
+			splitSubject[i] = splitSubject[i].replace(/(\r\n|\n|\r)/gm,"");
+			splitSubject[i].trim();
+			splitSubject[i].toLowerCase();
+			newObj.subject.push(splitSubject[i]);
+		}
+	}
+
+
+
 	newObj.save(function(err,item, count){
 		if (err){
 			console.log(err);
