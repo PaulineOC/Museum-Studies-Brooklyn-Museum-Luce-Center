@@ -1,87 +1,131 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-lg-6" style="margin:auto;">
-		<form method="POST" action="keyTerm" id="keyTerm">
+		<div class="col-lg-12">
 
 			<div class="row">
-				<div class="col">
-					<input class="btn btn-primary" name="keyWord" type="submit" value="17th Century A.D." style="float:left; margin: 5px;"></td>
-
-					<div class="row">
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="18th Century A.D." style="float:left; margin: 5px; "></td>
-
-							<input class="btn btn-primary" name="keyWord" type="submit" value="19th Century A.D." style="float:left; margin: 5px"></td>
-						</div>
+				<div class="row">
+				<div class="col-lg-12">
+					<div class="buttonbar" style="width:50%; margin-left:auto;margin-right:auto;">
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;">About</button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="mapSearch">Map Search</a></button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="Themes">Keywords</a></button>
+						<button type="button" class="btn btn-default navbar-btn"style="font-size:20px;"><a href=<a href="AskUs">Ask App</a></button>
 					</div>
 				</div>
 			</div>
 
-			<div class="row" style="margin-top: 10px; width:50%">
+			<div class="row">
 				<div class="col-lg-12">
-					<input class="btn btn-primary" name="keyWord" type="submit" value="America" style="float:left; margin: 5px; "></td>
-
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="France " style="float:left; margin: 5px"></td>
-						</div>
-
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="England " style="float:left; margin: 5px"></td>
-						</div>
-
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Spain " style="float:left; margin: 5px"></td>
-						</div>
+					<div class="searchbarnormal" style="width:50%; margin-left:auto;margin-right:auto;">
+						<form method = "GET" action="/search" id = "formdiv">
+				 		<h3>Show me:</h3><input type="text" name = "search" value ="" style="font-size:16px">
+				 		<BR>
+				 		<input type="submit" value="Search" alt="Search"><BR>
+						</form>
+					</div>
+				</div>
 				</div>
 			</div>
 
-
-			<div class="row" style="margin-top: 10px">
+			<div class="row">
 				<div class="col-lg-12">
+					<div style="width:50%;margin-left:auto;margin-right:auto">
+
+
+						<form method="POST" action="keyTerm" id="keyTerm">
+							<div class="row">
+								<div class="col-lg-12">
+									<h3>
+										Time Period
+									</h3>
+									<input class="btn btn-primary" name="keyWord" type="submit" value="17th Century A.D." style="float:left; margin: 5px;"></td>
+
+									<div class="row">
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="18th Century A.D." style="float:left; margin: 5px; "></td>
+
+											<input class="btn btn-primary" name="keyWord" type="submit" value="19th Century A.D." style="float:left; margin: 5px"></td>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row" style="margin-top: 10px; width:50%">
+								<div class="col-lg-12">
+									<h3>Geography</h3>
+									<input class="btn btn-primary" name="keyWord" type="submit" value="America" style="float:left; margin: 5px; "></td>
+
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="France " style="float:left; margin: 5px"></td>
+										</div>
+
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="England " style="float:left; margin: 5px"></td>
+										</div>
+
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Spain " style="float:left; margin: 5px"></td>
+										</div>
+								</div>
+							</div>
+
+
+							<div class="row" style="margin-top: 10px">
+								<div class="col-lg-12">
+
+									<h3>Style/Technique</h3>
+									
+									<div class="row">
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Luminism " style="float:left; margin: 5px"></td>
+										</div>
+
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Neoclassicism" style="float:left; margin: 5px"></td>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row" style="margin-top: 10px">
+								<div class="col-lg-12">
+									<h3>Subject</h3>
 					
-					<div class="row">
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Luminism " style="float:left; margin: 5px"></td>
-						</div>
+									<div class="row">
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Landscape Paintings" style="float:left; margin: 5px"></td>
+										</div>
 
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Neoclassicism" style="float:left; margin: 5px"></td>
-						</div>
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Portrait Paintings" style="float:left; margin: 5px"></td>
+										</div>
+
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Hudson River School" style="float:left; margin: 5px"></td>
+										</div>
+
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Ceramics" style="float:left; margin: 5px"></td>
+										</div>
+
+										<div class="col-lg-12">
+											<input class="btn btn-primary" name="keyWord" type="submit" value="Sculpture" style="float:left; margin: 5px"></td>
+										</div>
+
+									
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
 
 					</div>
 				</div>
 			</div>
+			
 
-
-			<div class="row" style="margin-top: 10px">
-				<div class="col-lg-12">
-	
-					<div class="row">
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Landscape Paintings" style="float:left; margin: 5px"></td>
-						</div>
-
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Portrait Paintings" style="float:left; margin: 5px"></td>
-						</div>
-
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Hudson River School" style="float:left; margin: 5px"></td>
-						</div>
-
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Ceramics" style="float:left; margin: 5px"></td>
-						</div>
-
-						<div class="col-lg-12">
-							<input class="btn btn-primary" name="keyWord" type="submit" value="Ceramics" style="float:right; margin: 5px"></td>
-						</div>
-					</div>
-				</div>
-			</div>
-
-					
-		</form>
 		</div>
 	</div>
 </div>

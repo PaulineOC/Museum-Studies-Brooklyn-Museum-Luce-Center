@@ -1,32 +1,67 @@
 
 <div class="container-fluid">
-	<h1>Advanced Search</h1>
-	<p>
-		<a href="/">Go Back to Research Center's Home Page </a href>
-	</p>
-	 <form method="POST" action="AdvancedSearch" id="AdvancedSearch">
-	 	*Accession #:  <input type="text" name = "accession" value ="" >
-	 	<BR>
-	 	Maker/Designer/Artist: <input type="text" name = "maker" value ="">
-	 	<BR>
-	 	Manufacturer: <input type="text" name = "manufacturer" value ="" >
-	 	<BR>
-	 	*Title: <input type="text" name = "title" value =""  >
-	 	<BR>
- 		{{!-- Dates can be in string format: ca. 1930 vs. 1932-1934--}}
-	 	*Date : <input type="text" name="date" value="">
-	 	<BR>
-	 	*Medium: <input type="text" name="medium" value="" >
-		<br>
-		Location: <input type="text" name="location" value="">
-		<br>
-		Keywords: <input type="text" name="keywords" value="">
-		<br>
-		<input type="submit" value="Submit" form="AdvancedSearch">
-	</form>
+			<div class="row">
+				<div class="col-lg-12">
 
+					<div class="row">
+						<div class="col-lg-12">
 
+						<div class="buttonbar" style="width:50%; margin-left:auto;margin-right:auto;">
+							<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;">About</button>
+							<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="mapSearch">Map Search</a></button>
+							<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="Themes">Keywords</a></button>
+							<button type="button" class="btn btn-default navbar-btn"style="font-size:20px;"><a href=<a href="AskUs">Ask App</a></button>
+						</div>
+							
+						</div>
+					</div>
 
+					<div class="row">
+						<div class="col-lg-12">
+						<div class="searchbarnormal" style="width:50%; margin-left:auto;margin-right:auto;">
+							<form method = "GET" action="/search" id = "formdiv">
+					 		<h3>General Search:</h3><input type="text" name = "search" value ="" style="font-size:16px">
+					 		<BR>
+					 		<input type="submit" value="Search" alt="Search"><BR>
+							</form>
+						</div>
+					</div>
+				</div>
 
+					<div class="row">
+						<div class="col-lg-12">
+							<h1>Advanced Search</h1>
+						</div>
+					</div>
 
+					<div class="row">
+						<div class="col-lg-12">
+							 <form method="POST" action="AdvancedSearch" id="AdvancedSearch">
+							 	*Accession #:  <input type="text" name = "accession" value ="" >
+							 	<BR>
+							 	Maker/Designer/Artist: <input type="text" name = "maker" value ="">
+							 	<BR>
+							 	Manufacturer: <input type="text" name = "manufacturer" value ="" >
+							 	<BR>
+							 	*Title: <input type="text" name = "title" value =""  >
+							 	<BR>
+						 		{{!-- Dates can be in string format: ca. 1930 vs. 1932-1934--}}
+							 	*Date : <input type="text" name="date" value="">
+							 	<BR>
+							 	*Medium: <input type="text" name="medium" value="" >
+								<br>
+								Location: <input type="text" name="location" value="">
+								<br>
+								Keywords: <input type="text" name="keywords" value="">
+								<br>
+								<input type="submit" value="Submit" form="AdvancedSearch">
+							</form>
+								
+
+						</div>
+					</div>
+
+						
+		</div>
+	</div>
 </div>
