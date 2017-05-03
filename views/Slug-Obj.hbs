@@ -1,117 +1,171 @@
 <div class="container-fluid">
 	<div class="row">
-		{{!-- Image --}}
 
-		<div class="col-lg-4" style="padding-top:20px">
-			
-			<div class="row">
+		<div class="row">
 				<div class="col-lg-12">
-					<img class="img-responsive" src="data:image/jpeg;base64,{{{object.pic}}}">
+					<div class="buttonbar" style="width:50%; margin-left:auto;margin-right:auto;">
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="/">Home</a></button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;">About</button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="mapSearch">Map Search</a></button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="Themes">Keywords</a></button>
+						<button type="button" class="btn btn-default navbar-btn"style="font-size:20px;"><a href="AskUs">Ask App</a></button>
+					</div>
 				</div>
 			</div>
-			<br>
-			<table class="table-responsive"> 
-				<tbody>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="searchbarnormal" style="width:50%; margin-left:auto;margin-right:auto;">
+					<form method = "GET" action="/search" id = "formdiv">
+			 		<h3>Show me:</h3><input type="text" name = "search" value ="" style="font-size:16px">
+			 		<BR>
+			 		<input type="submit" value="Search" alt="Search"><BR>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-12">
+			{{!-- Image --}}
+			<div class="col-lg-4" style="padding-top:20px">
 				
-					<tr>
-						<td>
-							<h4 style="display: inline;">Accession #:</h4> {{{object.accessionNum}}}
-						</td>
-					</tr>
-
-					{{#if object.manufacturer }}
-						<tr>
-							<td>
-								<h4 style="display: inline;">Manufacturer</h4>: {{{object.manufacturer}}} 
-							</td>
-						<tr>
-					{{/if}}
-
-					{{#if object.dimensions }}
-						<tr>
-							<td>
-								<h4 style="display: inline;">Dimensions</h4>: {{{object.dimensions}}} 
-							</td>
-						<tr>
-					{{/if}}
-
-					{{#if object.marks }}
-						<tr>
-							<td>
-								<h4 style="display: inline;">Marks</h4>: {{{object.marks}}} 
-							</td>
-						<tr>
-					{{/if}}
-
-					{{#if object.medium }}
-						<tr>
-							<td>
-								<h4 style="display: inline;">Medium</h4>: {{{object.medium}}} 
-							</td>
-						<tr>
-					{{/if}}
-				</tbody>
-			</table>
-		</div>
-
-		{{!-- Information --}}
-		<div class="col-lg-4">
-
-			<h2>{{{object.title}}}</h2>
-
-			<table class="table-responsive"> 
-				<tbody>
-					<tr>
-						<td>
-							<h4 style="display: inline;">Date :</h4> {{{object.date}}}
-						</td>
-					</tr>
-
-					{{#if object.maker }}
-						<tr>
-							<td>
-								<h4 style="display: inline;">Maker: </h4> {{{object.maker}}}
-							</td>
-						<tr>
-					{{/if}}
-
-					{{#if object.description }}
-						<tr>
-							<td>
-								<h4 style="display: inline;">Description :</h4> {{{object.description}}} 
-							</td>
-						<tr>
-					{{/if}}
-
-
-				</tbody>
-			</table>
-		</div>
-
-
-		{{!-- Further Information --}}
-		<div class="col-lg-4">
-			<h3>Further Information</h3>
-
-			{{#if object.furtherArticles}}
-			<h4>Articles</h4>
-				{{#each object.furtherArticles}}
-					<div>{{this.article}}<a href='{{this.link}}'>{{this.link}}</a>
+				<div class="row">
+					<div class="col-lg-12">
+						<img class="img-responsive" src="data:image/jpeg;base64,{{{object.pic}}}">
 					</div>
-				{{/each }}
-			{{/if}}
+				</div>
+				<br>
+				<table class="table-responsive"> 
+					<tbody>
+					
+						<tr>
+							<td>
+								<h4 style="display: inline;">Accession #:</h4> {{{object.accessionNum}}}
+							</td>
+						</tr>
 
-				{{#if object.furtherLinks}}
-				<h4>Related Videos</h4>
-				{{#each object.furtherLinks}}
-					<div class="embed-responsive embed-responsive-16by9">
-				  		<iframe class="embed-responsive-item" src="{{this}}" frameborder="0" allowfullscreen></iframe>
-					</div><BR>
+						{{#if object.manufacturer }}
+							<tr>
+								<td>
+									<h4 style="display: inline;">Manufacturer</h4>: {{{object.manufacturer}}} 
+								</td>
+							<tr>
+						{{/if}}
 
-				{{/each }}
-			{{/if}}
+						{{#if object.dimensions }}
+							<tr>
+								<td>
+									<h4 style="display: inline;">Dimensions</h4>: {{{object.dimensions}}} 
+								</td>
+							<tr>
+						{{/if}}
 
-			<BR>
+						{{#if object.marks }}
+							<tr>
+								<td>
+									<h4 style="display: inline;">Marks</h4>: {{{object.marks}}} 
+								</td>
+							<tr>
+						{{/if}}
+
+						{{#if object.medium }}
+							<tr>
+								<td>
+									<h4 style="display: inline;">Medium</h4>: {{{object.medium}}} 
+								</td>
+							<tr>
+						{{/if}}
+
+
+						{{#if object.subject}}
+							<tr>
+								<td>
+									<h4 style="display: inline;">Keywords:</h4>
+								<td>
+							<tr>
+							<form method="POST" action="../../keyTerm" id="keyTerm">
+								{{#each object.subject}}
+									<tr>
+										<td>
+											<input class="btn btn-primary" name="keyWord" type="submit" value="{{{this}}}" style="float:left; margin:5px">
+									
+										</td>
+									<tr>
+								{{/each}}
+							</form>
+						{{/if}}
+
+
+						
+					</tbody>
+				</table>
+			</div>
+
+			{{!-- Information --}}
+			<div class="col-lg-4">
+
+				<h2>{{{object.title}}}</h2>
+
+				<table class="table-responsive"> 
+					<tbody>
+						<tr>
+							<td>
+								<h4 style="display: inline;">Date :</h4> {{{object.date}}}
+							</td>
+						</tr>
+
+						{{#if object.maker }}
+							<tr>
+								<td>
+									<h4 style="display: inline;">Maker: </h4> {{{object.maker}}}
+								</td>
+							<tr>
+						{{/if}}
+
+						{{#if object.description }}
+							<tr>
+								<td>
+									<h4 style="display: inline;">Description :</h4> {{{object.description}}} 
+								</td>
+							<tr>
+						{{/if}}
+
+
+
+
+					</tbody>
+				</table>
+			</div>
+
+
+			{{!-- Further Information --}}
+			<div class="col-lg-4">
+				<h3>Further Information</h3>
+
+				{{#if object.furtherArticles}}
+				<h4>Articles</h4>
+					{{#each object.furtherArticles}}
+						<div>{{this.article}}<a href='{{this.link}}'>{{this.link}}</a>
+						</div>
+					{{/each }}
+				{{/if}}
+
+					{{#if object.furtherLinks}}
+					<h4>Related Videos</h4>
+					{{#each object.furtherLinks}}
+						<div class="embed-responsive embed-responsive-16by9">
+					  		<iframe class="embed-responsive-item" src="{{this}}" frameborder="0" allowfullscreen></iframe>
+						</div><BR>
+
+					{{/each }}
+				{{/if}}
+
+				<BR>
+			</div>
+			
+
 		</div>
+
+
 	</div>
 </div>

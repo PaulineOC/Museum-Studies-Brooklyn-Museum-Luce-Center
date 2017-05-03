@@ -1,10 +1,32 @@
-
-
-
 <div class="container-fluid">
-	<h1>Brooklyn Museum's Luce Research Center</h1>
+
+
 	<div class="row">
 		<div class="col-lg-12">
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="buttonbar" style="width:50%; margin-left:auto;margin-right:auto;">
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="/">Home</a></button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;">About</button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="mapSearch">Map Search</a></button>
+						<button type="button" class="btn btn-default navbar-btn" style="font-size:20px;"><a href="Themes">Keywords</a></button>
+						<button type="button" class="btn btn-default navbar-btn"style="font-size:20px;"><a href="AskUs">Ask App</a></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="searchbarnormal" style="width:50%; margin-left:auto;margin-right:auto;">
+						<form method = "GET" action="/search" id = "formdiv">
+				 		<h3>Show me:</h3><input type="text" name = "search" value ="" style="font-size:16px">
+				 		<BR>
+				 		<input type="submit" value="Search" alt="Search"><BR>
+						</form>
+					</div>
+				</div>
+			</div>
 
 
 			<div class="row">
@@ -102,7 +124,7 @@
 					var overlay = document.createElement("div");
 					overlay.classList.add("view");
 					overlay.classList.add("overlay");
-					overlay.classList.add("hm-red-light");
+					overlay.classList.add("hm-white-light");
 					overlay.appendChild(img);
 
 					var mask = document.createElement("div");

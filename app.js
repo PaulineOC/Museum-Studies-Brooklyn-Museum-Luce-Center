@@ -87,9 +87,21 @@ app.get('/search', function(req,res){
 });
 
 
+var subjectSearch = function(searchObj, term) {
+	for (var i = 0; i < searchObj.subject.length; i++) {
+		var test  = searchObj.subject[i].trim();
+		test = test.toLowerCase();
+		if(test === term){
+			return true;
+		}
+	}
+	return false;
+}
+
 app.post('/keyTerm',function(req,res){
 	var results=[];
 	var word =req.body.keyWord.toLowerCase().trim();
+	console.log(word);
 
 	museumObj.find({}).then(function(rs){
 		rs.forEach(function(ele){
